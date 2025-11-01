@@ -1,1 +1,1 @@
-# BIRD-Platinum
+# BIRD-Platinum: Achieving the State-of-the-Art Text-to-SQL Capabilities via Reinforcement Learning with a Clean Dataset
