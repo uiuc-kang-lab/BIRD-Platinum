@@ -205,3 +205,12 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Data files
+**/*.tar.gz
+
+# Large result files
+baselines/ArcticTraining/projects/arctic_text2sql_r1/results
+baselines/OmniSQL/train_and_evaluate/workspace
+baselines/csc_sql/outputs
+baselines/csc_sql/outputs
