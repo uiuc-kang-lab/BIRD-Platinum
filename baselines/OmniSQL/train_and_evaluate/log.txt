@@ -1,0 +1,11 @@
+Namespace(output_ckpt_dir='seeklhy/OmniSQL-32B', multiple_models=False, source='bird', visible_devices='0,1', input_file='/workspace/dev/omnisql_dev_bird.json', eval_name='OmniSQL-32B_dev_bird', tensor_parallel_size=2, n=8, gold_file='/workspace/dev/arcwise_minidev.json', db_path='/workspace/dev/dev_databases', ts_db_path='', gold_result_dir=None, eval_standard=None)
+  0%|          | 0/1 [00:00<?, ?it/s]Evaluating ckpt: 
+  0%|          | 0/1 [16:54<?, ?it/s]
+Traceback (most recent call last):
+  File "/workspace/text_to_sql_benchmarks/text_to_sql_agents/OmniSQL/train_and_evaluate/auto_evaluation.py", line 101, in <module>
+    evaluate_bird.run_eval(opt.gold_file, gs_pred_file, opt.db_path, "greedy_search", True)
+  File "/workspace/text_to_sql_benchmarks/text_to_sql_agents/OmniSQL/train_and_evaluate/evaluate_bird.py", line 209, in run_eval
+    ground_truth_sqls = [data["query"] for data in gold]
+  File "/workspace/text_to_sql_benchmarks/text_to_sql_agents/OmniSQL/train_and_evaluate/evaluate_bird.py", line 209, in <listcomp>
+    ground_truth_sqls = [data["query"] for data in gold]
+KeyError: 'query'
