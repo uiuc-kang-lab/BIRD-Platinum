@@ -14,7 +14,7 @@ This repository contains the code and data to reproduce the results reported in 
 
 ## RLVR with BIRD-Platinum
 
-Trained checkpoints are available on Hugging Face.
+Trained checkpoints are available on [Hugging Face](https://huggingface.co/collections/uiuc-kang-lab/bird-platinum) (Downloads are not tracked).
 
 To train from scratch using Tinker’s API:
 
