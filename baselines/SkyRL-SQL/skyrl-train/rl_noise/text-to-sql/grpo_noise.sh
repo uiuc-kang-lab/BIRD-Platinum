@@ -50,7 +50,6 @@ DATA_DIR="$BASE_DIR/data/bird"
 DB_PATH="$DATA_DIR/databases"
 CKPT_PATH="$BASE_DIR/ckpts/$RUN_NAME"
 EXPORT_PATH="$BASE_DIR/exports/$RUN_NAME"
-DB_MOD_PATH="/data/yuxuan_zhu/noisy-rl/BIRD-Platinum/db_modification"
 
 # if debug, set logger to console
 if [ "$DEBUG" = "true" ]; then
@@ -106,7 +105,6 @@ uv run --isolated --extra vllm -m skyrl_train.entrypoints.main_base \
   generator.sampling_params.stop='["</sql>", "</solution>"]' \
   generator.eval_sampling_params.stop='["</sql>", "</solution>"]' \
   environment.skyrl_gym.text2sql.db_path=$DB_PATH \
-  environment.skyrl_gym.text2sql.db_modification_scripts_path=$DB_MOD_PATH \
   environment.skyrl_gym.max_env_workers=12 \
   trainer.logger="wandb" \
   trainer.project_name="noisy-rl-sql" \
