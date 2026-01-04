@@ -2,23 +2,23 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 OUTPUT_FORMAT=json
 
-MODEL_ENV=models/SQL-R1-14B # TODO: add model path
+MODEL_ENV=MPX0222forHF/SQL-R1-14B # TODO: add model path
 OUTPUT_FILE_NAME=generated_sql.$OUTPUT_FORMAT
 DATASET=bird # [bird, spider, spider-dk, spider-syn, spider-realistic, spider2-lite]
 MODE=dev # [dev, test], only spider has test mode
-NUM_GPUS=2 
+NUM_GPUS=1
 
 TEMPERATURE=0.8
 
-N=8
+N=1
 
 if [ "$DATASET" = "spider" ]; then
     if [ "$MODE" = "test" ]; then
-        INPUT_FILE=data/NL2SQL/Spider/test.json
-        DATABASE_PATH=data/NL2SQL/Spider/test_database  
+        INPUT_FILE=../../spider_data/test.json
+        DATABASE_PATH=../../spider_data/test_database  
         OUTPUT_FILE=results/spidertest-$OUTPUT_FILE_NAME
-        TABLE_VALUE_CACHE_PATH=data/NL2SQL/Spider/spidertest_db_id2sampled_db_values.json 
-        TABLE_INFO_CACHE_PATH=data/NL2SQL/Spider/spidertest_db_id2db_info.json
+        TABLE_VALUE_CACHE_PATH=db_info/spidertest_db_id2sampled_db_values.json 
+        TABLE_INFO_CACHE_PATH=db_info/spidertest_db_id2db_info.json
     elif [ "$MODE" = "dev" ]; then
         INPUT_FILE=data/NL2SQL/Spider/dev.json
         DATABASE_PATH=data/NL2SQL/Spider/database
@@ -30,13 +30,13 @@ elif [ "$DATASET" = "bird" ]; then
     if [ "$MODE" = "dev" ]; then
         # INPUT_FILE=data/NL2SQL/BIRD/dev/dev.json
         # DATABASE_PATH=data/NL2SQL/BIRD/dev/dev_databases
-        INPUT_FILE=dev/dev.json
-        DATABASE_PATH=dev/dev_databases
-        OUTPUT_FILE=results/birddev-$OUTPUT_FILE_NAME
+        INPUT_FILE=../../spider_2.json
+        DATABASE_PATH=../../spider2_dbs
+        OUTPUT_FILE=results/spider2-$OUTPUT_FILE_NAME
         # TABLE_VALUE_CACHE_PATH=data/NL2SQL/BIRD/dev/bird_db_id2sampled_db_values.json
         # TABLE_INFO_CACHE_PATH=data/NL2SQL/BIRD/dev/bird_db_id2db_info.json
-        TABLE_VALUE_CACHE_PATH=db_info/bird_db_id2sampled_db_values.json
-        TABLE_INFO_CACHE_PATH=db_info/bird_db_id2db_info.json
+        TABLE_VALUE_CACHE_PATH=db_info/spiderdev_db_id2sampled_db_values.json
+        TABLE_INFO_CACHE_PATH=db_info/spiderdev_db_id2db_info.json
     else
         exit 1
     fi
@@ -85,8 +85,7 @@ else
     exit 1
 fi
 
-
-python src/inference.py \
+uv run src/inference.py \
     --nl2sql_ckpt_path $MODEL_ENV \
     --dataset_name $DATASET \
     --input_file $INPUT_FILE \

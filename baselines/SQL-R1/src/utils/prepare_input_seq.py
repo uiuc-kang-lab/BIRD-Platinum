@@ -424,6 +424,8 @@ def get_input_seq(data, database_path, dataset_name, table_value_cache_path, tab
         db_id2sampled_db_values = json.load(f)
 
     data["db_id"] = data["db_id"].replace('\n', '')
+    if data["db_id"].endswith("spider2"):
+        data["db_id"] = data["db_id"].replace("_spider2", '')
 
     input_seq_dict = prepare_input_output_pairs(
                     data=data, 

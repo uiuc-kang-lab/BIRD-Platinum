@@ -46,7 +46,7 @@ if __name__ == '__main__':
     print(opt)
 
     input_dataset = json.load(open(opt.input_file))
-    tokenizer = AutoTokenizer.from_pretrained(opt.nl2sql_ckpt_path, trust_remote_code=True, local_files_only=True)
+    tokenizer = AutoTokenizer.from_pretrained(opt.nl2sql_ckpt_path, trust_remote_code=True)
     
     if "Qwen2.5-" in opt.nl2sql_ckpt_path:
         stop_token_ids = [151645] # 151645 is the token id of <|im_end|> (end of turn token in Qwen2.5)
