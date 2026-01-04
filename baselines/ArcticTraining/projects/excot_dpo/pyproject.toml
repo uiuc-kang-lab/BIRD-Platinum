@@ -1,0 +1,12 @@
+[project]
+name = "excot-dpo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "arctic-training>=0.7.0",
+    "editdistance>=0.8.1",
+    "sqlglot>=28.5.0",
+    "vllm>=0.13.0",
+]

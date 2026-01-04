@@ -63,7 +63,7 @@ class OSSEvalVLLM:
             "model": model_name,
             "tensor_parallel_size": tensor_parallel_size,
             "enable_chunked_prefill": False,
-            "download_dir": "/data-fast/vllm",
+            "download_dir": "/scratch/yxx404",
             "gpu_memory_utilization": 0.95,
             "max_model_len": max_tokens,
             "trust_remote_code": True,
@@ -137,7 +137,7 @@ def eval_bird(
         task_name=task_name,
         max_tokens=max_len,
         n=1,
-        tensor_parallel_size=8,
+        tensor_parallel_size=2,
         prompt_version=prompt_version,
         work_dir=work_dir,
     )
@@ -206,7 +206,7 @@ def eval_spider(
         task_name=task_name,
         max_tokens=max_len,
         n=1,
-        tensor_parallel_size=8,
+        tensor_parallel_size=2,
         prompt_version=prompt_version,
     )
     spider_inferences = cot_generator_vllm.batch_dataset(questions, db_desc_str)

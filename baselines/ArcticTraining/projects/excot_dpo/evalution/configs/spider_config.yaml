@@ -11,8 +11,8 @@ spider:
     tables_json_name: "tables.json"
     question_file: "dev.json"
   test:
-    data_dir: "/data/spider"
+    data_dir: "../../../../../spider_data"
     db_folder: "test_database"
-    tables_json_name: "/data/spider/test_data/tables.json"
-    question_file: "/data/spider/test_data/dev.json"
-cache_dir: "/data/gen_tmp"
+    tables_json_name: "test_tables.json"
+    question_file: "test.json"
+cache_dir: "./gen_tmp"
