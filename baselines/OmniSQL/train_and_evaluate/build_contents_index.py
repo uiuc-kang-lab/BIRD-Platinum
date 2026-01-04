@@ -93,11 +93,11 @@ def build_content_index(db_file_path, index_path):
 if __name__ == "__main__":
     dataset_info = {
         # BIRD train
-        "bird_dev": {"db_path": "/workspace/dev/dev_databases", "index_path_prefix": "./workspace/dev/omnisql_db_contents_index"},
+        # "bird_dev": {"db_path": "/workspace/dev/dev_databases", "index_path_prefix": "./workspace/dev/omnisql_db_contents_index"},
         # BIRD dev
         # "bird_dev": {"db_path": "./data/bird/dev_20240627/dev_databases", "index_path_prefix": "./data/bird/dev_20240627/db_contents_index"},
         # Spider train-dev-test
-        # "spider": {"db_path": "./data/spider/test_database", "index_path_prefix": "./data/spider/db_contents_index"},
+        "spider": {"db_path": "../../../spider_data/test_database", "index_path_prefix": "./data/spider/db_contents_index"},
         # Spider2.0-SQLite
         # "spider2_sqlite": {"db_path": "./data/spider2_sqlite/databases", "index_path_prefix": "./data/spider2_sqlite/db_contents_index"},
         # SynSQL-2.5M dataset

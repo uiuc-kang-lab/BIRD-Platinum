@@ -1,0 +1,14 @@
+[project]
+name = "omnisql"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "func-timeout>=4.3.5",
+    "matplotlib>=3.10.8",
+    "nltk==3.8.1",
+    "sqlparse>=0.5.5",
+    "tqdm>=4.67.1",
+    "vllm==0.6.3.post1",
+]

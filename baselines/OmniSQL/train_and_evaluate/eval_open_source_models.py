@@ -27,7 +27,7 @@ models = [
     # "mistralai/Mixtral-8x7B-Instruct-v0.1",
 ]
 
-visible_devices = "0,1" # visible devices for vLLM
+visible_devices = "0" # visible devices for vLLM
 tensor_parallel_size = len(visible_devices.split(","))
 
 for model in models:
@@ -37,17 +37,17 @@ for model in models:
     # spider2_test_evaluation_cmd = f"python3 auto_evaluation.py --output_ckpt_dir {model} --source spider2.0 --visible_devices {visible_devices} --input_file ./data/test_spider2_sqlite.json --eval_name {spider2_test_eval_name} --tensor_parallel_size {tensor_parallel_size} --n 8 --gold_file ./data/spider2_sqlite/test.json --db_path ./data/spider2_sqlite/databases/ --gold_result_dir ./data/spider2_sqlite/gold_exec_result/ --eval_standard ./data/spider2_sqlite/spider2_sqlite_eval.jsonl"
     # os.system(spider2_test_evaluation_cmd)
 
-    dev_bird_eval_name = f"{model_name}_dev_bird"
-    dev_bird_evaluation_cmd = f"python3 auto_evaluation.py --output_ckpt_dir {model} --source bird --visible_devices {visible_devices} --input_file /workspace/dev/omnisql_dev_bird.json --eval_name {dev_bird_eval_name} --tensor_parallel_size {tensor_parallel_size} --n 8 --gold_file /workspace/dev/arcwise_minidev.json --db_path /workspace/dev/dev_databases"
-    os.system(dev_bird_evaluation_cmd)
+    # dev_bird_eval_name = f"{model_name}_test_spider"
+    # dev_bird_evaluation_cmd = f"python3 auto_evaluation.py --output_ckpt_dir {model} --source bird --visible_devices {visible_devices} --input_file ./data/test_spider.json --eval_name {dev_bird_eval_name} --tensor_parallel_size {tensor_parallel_size} --n 1 --gold_file ../../../spider_1.json --db_path /workspace/dev/dev_databases"
+    # os.system(dev_bird_evaluation_cmd)
 
     # dev_spider_eval_name = f"{model_name}_dev_spider"
     # dev_spider_evaluation_cmd = f"python3 auto_evaluation.py --output_ckpt_dir {model} --source spider --visible_devices {visible_devices} --input_file ./data/dev_spider.json --eval_name {dev_spider_eval_name} --tensor_parallel_size {tensor_parallel_size} --n 8 --gold_file ./data/spider/dev_gold.sql --db_path ./data/spider/database --ts_db_path ./test_suite_sql_eval/test_suite_database"
     # os.system(dev_spider_evaluation_cmd)
 
-    # test_spider_eval_name = f"{model_name}_test_spider"
-    # test_spider_evaluation_cmd = f"python3 auto_evaluation.py --output_ckpt_dir {model} --source spider --visible_devices {visible_devices} --input_file ./data/test_spider.json --eval_name {test_spider_eval_name} --tensor_parallel_size {tensor_parallel_size} --n 8 --gold_file ./data/spider/test_gold.sql --db_path ./data/spider/test_database"
-    # os.system(test_spider_evaluation_cmd)
+    test_spider_eval_name = f"{model_name}_test_spider"
+    test_spider_evaluation_cmd = f"python3 auto_evaluation.py --output_ckpt_dir {model} --source spider --visible_devices {visible_devices} --input_file ./data/test_spider.json --eval_name {test_spider_eval_name} --tensor_parallel_size {tensor_parallel_size} --n 1 --gold_file ../../../spider_data/test_gold.sql --db_path ../../../spider_data/test_database"
+    os.system(test_spider_evaluation_cmd)
 
     # spider_dk_eval_name = f"{model_name}_dev_spider_dk"
     # spider_dk_evaluation_cmd = f"python3 auto_evaluation.py --output_ckpt_dir {model} --source spider --visible_devices {visible_devices} --input_file ./data/dev_spider_dk.json --eval_name {spider_dk_eval_name} --tensor_parallel_size {tensor_parallel_size} --n 8 --gold_file ./data/Spider-DK/spider_dk_gold.sql --db_path ./data/Spider-DK/database"
