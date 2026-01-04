@@ -1,0 +1,17 @@
+[project]
+name = "arctic-text2sql-r1"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "func-timeout>=4.3.5",
+    "matplotlib>=3.7.5",
+    "nltk==3.8.1",
+    "numpy==1.24.3",
+    "pandas>=2.0.3",
+    "setuptools>=75.3.2",
+    "sqlparse>=0.5.5",
+    "tqdm>=4.67.1",
+    "vllm>=0.5.5",
+]

@@ -79,7 +79,7 @@ if __name__ == "__main__":
     parser.add_argument("--pretrained_model_name_or_path", type=str, default="/fs/fast/u2021000902/previous_nvme/xxx")
     parser.add_argument("--input_file", type=str, help="the input file path (prompts)")
     parser.add_argument("--output_file", type=str, help="the output file path (results)")
-    parser.add_argument("--tensor_parallel_size", type=int, help="the number of used GPUs", default=4)
+    parser.add_argument("--tensor_parallel_size", type=int, help="the number of used GPUs", default=1)
     parser.add_argument("--n", type=int, help="the number of generated responses", default=4)
     parser.add_argument("--temperature", type=float, help="temperature of llm's sampling", default=1.0)
     parser.add_argument("--parallel_generation", action="store_true", help="Using ray + vllm to speed up generation.")
