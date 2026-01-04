@@ -172,7 +172,7 @@ def infer(raw_data, db_base_path: str, n_data: int = -1, schemas: dict = None, o
     queries = [None for _ in range(len(prompts))]
     n_output_tokens_all = 0
     n_input_tokens_all = 0
-    llm = LLM(model=model_path, tensor_parallel_size=8)
+    llm = LLM(model=model_path, tensor_parallel_size=1)
     if prompt_style == "skyrl-sql":
         for i in range(5): # max 5 turns
 

@@ -296,7 +296,9 @@ class SchemaEngine(SQLDatabase):
             all_tables = []
             # Iterate through all available schemas
             for s in self.get_schema_names():
+                print(s)
                 tables = self._inspector.get_table_names(schema=s)
+                print(tables)
                 all_tables.extend(tables)
                 for table in tables:
                     self._tables_schemas[table] = s
