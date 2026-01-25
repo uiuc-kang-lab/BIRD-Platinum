@@ -5,8 +5,6 @@ This repository provides:
 - Multi-turn RLVR training recipes built on Tinker.
 - Baseline implementations and ready-to-run evaluation scripts.
 
-If you use this repo or dataset, please cite the BIRD-Platinum paper (citation forthcoming).
-
 ## Repository Layout
 
 ```text
