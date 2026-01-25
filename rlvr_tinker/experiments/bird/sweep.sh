@@ -70,6 +70,5 @@ uv run experiments/bird/start_bird.py \
     wandb_name=$RUN_NAME \
     n_epochs=$N_EPOCHS \
     timeout=60 \
-    db_modification_script_path=/data/yuxuan_zhu/noisy-rl/BIRD-Platinum/db_modification \
     num_data=$NUM_DATA
     

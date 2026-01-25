@@ -46,11 +46,6 @@ def verify_format_and_extract(output: str):
 def execute_sql_single(db_file, sql):
     try:
         conn = sqlite3.connect(db_file)
-        # db_id = db_file.split("/")[-1].replace(".sqlite", "")
-        # sql_commands = None
-        # if os.path.exists(f"/data/yuxuan_zhu/noisy-rl/BIRD-Platinum/db_modification_eval/modify_{db_id}.sql"):
-        #     with open(f"/data/yuxuan_zhu/noisy-rl/BIRD-Platinum/db_modification_eval/modify_{db_id}.sql", "r") as f:
-        #         sql_commands = f.read()
         cursor = conn.cursor()
         conn.execute("BEGIN TRANSACTION;")
         # if sql_commands is not None:
